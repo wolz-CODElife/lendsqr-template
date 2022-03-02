@@ -1,0 +1,17 @@
+Given the design here https://www.figma.com/file/ZKILoCoIoy1IESdBpq3GNC/Frontend- Testing?node-id=5530%3A0 which has sample pages to be built.
+
+ Build the 4 pages Login, Dashboard, User page, User details page
+
+ Host on Heroku
+
+ The user pages should pull data from a dummy JSON with 500 records
+
+ Use local storage or indexed to run through the master data but pull the details from the JSON
+
+ The page should be mobile responsive
+
+Tech Stack
+===========================================================================
+ React
+
+ SCSS
