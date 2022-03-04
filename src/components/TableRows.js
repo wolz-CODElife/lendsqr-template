@@ -103,7 +103,7 @@ const TR = styled.tr`
 `
 const Popover = styled.div`
     position: absolute;
-    right: -10px;
+    right: 10px;
     background: #FFFFFF;
     box-shadow: 3px 5px 20px #0000000A;
     border: 1px solid #213F7D0F;

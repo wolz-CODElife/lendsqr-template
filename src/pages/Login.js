@@ -137,19 +137,10 @@ const LoginPage = styled.div`
 
         .form-field {
             width: 100%;
-            max-width: 447px;
             margin-bottom: 24px;
             position: relative;
             border: solid 2px #545F7D26;
             border-radius: 5px;
-                
-            @media (max-width: 768px) {
-                max-width: 100%;
-                
-                input {
-                    max-width: 100%;
-                }
-            }
             
             input {
                 width: 100%;

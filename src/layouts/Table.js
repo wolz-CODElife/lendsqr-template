@@ -50,6 +50,7 @@ const TableContainer = styled.div`
             border-collapse: collapse;
             color: #545F7D;
             z-index: 1;
+            width: 100%;
         }
     }
 `
