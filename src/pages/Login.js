@@ -48,6 +48,7 @@ const Login = () => {
 export default Login
 
 const Brand = styled.div`
+    padding: 50px;
     display: none;
 
     img {
@@ -66,7 +67,7 @@ const LoginPage = styled.div`
 
     @media (max-width: 768px) {
         margin-left: 0px;
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
 
     .illustration {
@@ -74,14 +75,18 @@ const LoginPage = styled.div`
         display: flex;
         flex-direction: column;
         padding: 97px 107px;
+        
+        @media (max-width: 768px) {
+            padding: 50px;
+            width: 100%;
+            .logo {
+                display: none;
+            }
+        }
 
         .logo {
             width: 173.76px;
             height: 36px;
-
-            @media (max-width: 768px) {
-                display: none;
-            }
         }
 
         .board {
@@ -90,6 +95,10 @@ const LoginPage = styled.div`
             object-fit: contain;
             max-width: 600px;
             max-height: 337.57px;
+            
+            @media (max-width: 768px) {
+                margin-top: 0px;
+            }
         }
     }
 
@@ -102,9 +111,12 @@ const LoginPage = styled.div`
         background: #FFFFFF;
         box-shadow: 0px -3px 20px #0000000A;
         
-
         @media (max-width: 880px) {
-            padding: 150px 50px;
+            padding: 50px;
+        }
+
+        @media (max-width: 768px) {
+            width: 100%;
         }
 
         h1 {
@@ -130,6 +142,14 @@ const LoginPage = styled.div`
             position: relative;
             border: solid 2px #545F7D26;
             border-radius: 5px;
+                
+            @media (max-width: 768px) {
+                max-width: 100%;
+                
+                input {
+                    max-width: 100%;
+                }
+            }
             
             input {
                 width: 100%;
