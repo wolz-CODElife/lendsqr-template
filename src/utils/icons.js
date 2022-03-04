@@ -205,3 +205,17 @@ export function IconAngleRightB(props) {
       <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="M15.54 11.29L9.88 5.64a1 1 0 0 0-1.42 0a1 1 0 0 0 0 1.41l4.95 5L8.46 17a1 1 0 0 0 0 1.41a1 1 0 0 0 .71.3a1 1 0 0 0 .71-.3l5.66-5.65a1 1 0 0 0 0-1.47Z"></path></svg>
     )
 }
+
+
+export function IconLongLeft(props) {
+    return (
+      <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="M6 16v-3h16v-2H6V8l-4 4l4 4Z"></path></svg>
+    )
+}
+
+
+export function IconStarPurple500(props) {
+    return (
+      <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21L12 17.27z"></path></svg>
+    )
+}

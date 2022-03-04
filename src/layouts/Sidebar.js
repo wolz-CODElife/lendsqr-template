@@ -99,7 +99,7 @@ const SidebarContainer = styled.div`
     
     a {
         padding: 20px 30px;
-        color: #213F7D40;
+        color: #213F7D70;
         font-size: 16px;
         text-decoration: none;
         
