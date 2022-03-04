@@ -240,3 +240,10 @@ export function IconHambuger(props) {
       <svg width="1em" height="1em" viewBox="0 0 256 256" {...props}><path fill="currentColor" fillRule="evenodd" d="M201.002 111c4.417 0 7.998 3.579 7.998 8.01v16.98c0 4.424-3.588 8.01-7.998 8.01H55.998C51.58 144 48 140.421 48 135.99v-16.98c0-4.424 3.588-8.01 7.998-8.01h145.004zm0 65c4.417 0 7.998 3.579 7.998 8.01v16.98c0 4.424-3.588 8.01-7.998 8.01H55.998C51.58 209 48 205.421 48 200.99v-16.98c0-4.424 3.588-8.01 7.998-8.01h145.004zm0-129c4.417 0 7.998 3.579 7.998 8.01v16.98c0 4.424-3.588 8.01-7.998 8.01H55.998C51.58 80 48 76.421 48 71.99V55.01c0-4.424 3.588-8.01 7.998-8.01h145.004z"></path></svg>
     )
 }
+
+
+export function IconDropDown(props) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 20 20" {...props}><path fill="currentColor" d="m17.5 4.75l-7.5 7.5l-7.5-7.5L1 6.25l9 9l9-9z"></path></svg>
+  )
+}

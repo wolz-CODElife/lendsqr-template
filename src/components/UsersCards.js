@@ -20,9 +20,8 @@ export default UsersCards
 
 const Cards = styled.div`
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 25px;
+    display: flex;
+    flex-wrap: wrap;
     margin: 40px 0px;
 
     .card {
@@ -36,6 +35,7 @@ const Cards = styled.div`
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        margin: 10px auto;
 
         span {
             width: 40px;

@@ -39,9 +39,17 @@ const PaginationSection = styled.div`
     justify-content: space-between;
     align-items: center;
     
+    @media(max-width: 1000px) {
+        flex-direction: column;
+    }
+    
     .details {
         display: flex;
         align-items: center;
+    
+        @media(max-width: 1000px) {
+            margin-bottom: 20px;
+        }
 
         select {
             margin: 0px 10px;

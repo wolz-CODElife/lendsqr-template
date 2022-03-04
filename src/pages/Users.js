@@ -20,6 +20,10 @@ export default Users
 const UsersContainer = styled.div`
     padding: 60px;
     flex: 1;
+    
+    @media(max-width: 1000px) {
+        padding: 30px;
+    }
 
     .title {
         font-size: 24px;

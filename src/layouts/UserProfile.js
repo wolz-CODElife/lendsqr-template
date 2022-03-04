@@ -1,39 +1,59 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import { IconStarPurple500 } from '../utils/icons'
+import { IconDropDown, IconStarPurple500 } from '../utils/icons'
 
 const UserProfile = () => {
-  return (
-      <UserHeader>
-          <div className="profile">
-              <img src="https://i.postimg.cc/Kzv5mC22/image.png" alt="profile" />
-              <div className="col">
-                  <h1>Grace Effiom</h1>
-                  <p>LSQFf587g90</p>
-              </div>
-              <div className="col">
-                  <p>User’s Tier</p>
-                  <p>
-                      <IconStarPurple500 />
-                      <IconStarPurple500 />
-                      <IconStarPurple500 />
-                  </p>
-              </div>
-              <div className="col">
-                  <h1>₦200,000.00</h1>
-                  <p>9912345678/Providus Bank</p>
-              </div>
-          </div>
-          <div className="nav">
-              <button className='active'>General Details</button>
-              <button>Documents</button>
-              <button>Bank Details</button>
-              <button>Loans</button>
-              <button>Savings</button>
-              <button>App and System</button>
-          </div>
-      </UserHeader>
-  )
+    const [openNav, setOpenNav] = useState(false)
+    const maxWidth = window.matchMedia("(max-width: 1100px)")
+
+    return (
+        <UserHeader>
+            <div className="profile">
+                <div className='column'>
+                    <img src="https://i.postimg.cc/Kzv5mC22/image.png" alt="profile" />
+                    <div className="col">
+                        <h1>Grace Effiom</h1>
+                        <p>LSQFf587g90</p>
+                    </div>
+                </div>
+                <div className='column'>
+                    <div className="col center">
+                        <p>User’s Tier</p>
+                        <p>
+                            <IconStarPurple500 />
+                            <IconStarPurple500 />
+                            <IconStarPurple500 />
+                        </p>
+                    </div>
+                    <div className="col">
+                        <h1>₦200,000.00</h1>
+                        <p>9912345678/Providus Bank</p>
+                    </div>
+                </div>
+            </div>
+            <button className='nav_prev' onClick={() => setOpenNav(!openNav)}><IconDropDown /></button>
+            {maxWidth.matches ?
+                openNav &&
+                <div className="nav">
+                    <button className='active'>General Details</button>
+                    <button>Documents</button>
+                    <button>Bank Details</button>
+                    <button>Loans</button>
+                    <button>Savings</button>
+                    <button>App and System</button>
+                </div>
+            :
+                <div className="nav">
+                    <button className='active'>General Details</button>
+                    <button>Documents</button>
+                    <button>Bank Details</button>
+                    <button>Loans</button>
+                    <button>Savings</button>
+                    <button>App and System</button>
+                </div>
+            }
+        </UserHeader>
+    )
 }
 
 export default UserProfile
@@ -45,16 +65,35 @@ const UserHeader = styled.div`
     box-shadow: 3px 5px 20px #0000000A;
     border: 1px solid #213F7D0F;
     border-radius: 4px;
+    position: relative;
+        
+    @media(max-width: 1100px) {
+        padding-bottom: 30px;
+    }
 
     .profile {
         display: flex;
         align-items: center;
         margin-bottom : 50px;
+        
+        @media(max-width: 1100px) {
+            flex-direction: column;
+            margin-bottom : 0px;
+        }
 
         img {
             width: 100px;
             height: 100px;
             border-radius: 50%;
+        }
+        
+        .column {
+            display: flex;
+            align-items: center;
+        
+            @media(max-width: 1100px) {
+                flex-direction: column;
+            }
         }
 
         .col {
@@ -64,10 +103,18 @@ const UserHeader = styled.div`
             flex-direction: column;
             align-items: flex-start;
             justify-content: center;
+        
+            @media(max-width: 1100px) {
+                align-items: center;
+            }
 
-            &:nth-of-type(2) {
+            &.center {
                 border-left: 1px solid #545F7D75;
                 border-right: 1px solid #545F7D75;
+
+                @media(max-width: 1100px) {
+                    border: none;
+                }
             }
 
             h1 {
@@ -95,9 +142,36 @@ const UserHeader = styled.div`
         }
     }
 
+    .nav_prev {
+        display: none;
+        width: 100%;
+        background: #39CDCC;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        color: #FFFFFF;
+        height: 40px;
+
+        @media(max-width: 1100px) {
+            display: unset;
+        }
+    }
+
     .nav {
         display: flex;
         justify-content: space-between;
+
+        @media(max-width: 1100px) {
+            position: absolute;
+            flex-direction: column;
+            right: 30px;
+            margin-top: 5px;
+            background: #FFFFFF;
+            box-shadow: 3px 5px 20px #0000000A;
+            border: 1px solid #213F7D0F;
+            border-radius: 4px;
+        }
 
         button {
             color: #000000CC;
@@ -106,6 +180,10 @@ const UserHeader = styled.div`
             outline: none;
             cursor: pointer;
             padding: 10px;
+            
+            @media(max-width: 1100px) {
+                width: 200px;
+            } 
 
             &.active {
                 color: #39CDCC;

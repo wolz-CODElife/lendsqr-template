@@ -28,6 +28,10 @@ export default UserDetails
 
 const UserDetailsContainer = styled.div`
     padding: 70px 60px;
+    
+    @media(max-width: 1100px) {
+        padding: 30px;
+    }
 
     .nav {
         a {
@@ -50,6 +54,10 @@ const UserDetailsContainer = styled.div`
         justify-content: space-between;
         align-items: center;
 
+        @media(max-width: 950px) {
+            flex-direction: column;
+        }
+
         h1 {
             color: #213F7D;
             font-size: 24px;
@@ -57,6 +65,15 @@ const UserDetailsContainer = styled.div`
         }
 
         .btns {
+            display: flex;
+            margin: 10px 0px;
+
+            @media(max-width: 445px) {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
             button {
                 background: #FFFFFF;
                 border-radius: 8px;
@@ -67,6 +84,11 @@ const UserDetailsContainer = styled.div`
                 cursor: pointer;
                 color: #E4033B;
                 margin-left: 20px;
+                
+                @media(max-width: 445px) {
+                    margin-left: unset;
+                    margin-bottom: 10px;
+                }
                 
                 &:nth-of-type(2) {
                     border: 1px solid #39CDCC;
