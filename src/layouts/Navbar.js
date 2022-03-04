@@ -67,7 +67,6 @@ const NavbarContainer = styled.div`
             
             input{
                 flex: 1;
-                border: none;
                 outline: none;
                 border: solid 1px #545F7D26;
                 border-radius: 8px 0px 0px 8px;

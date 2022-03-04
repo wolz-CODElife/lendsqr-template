@@ -19,6 +19,7 @@ export default Users
 
 const UsersContainer = styled.div`
     padding: 60px;
+    flex: 1;
 
     .title {
         font-size: 24px;

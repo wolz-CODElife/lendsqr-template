@@ -34,14 +34,18 @@ const Sidebar = (props) => {
 export default Sidebar
 
 const SidebarContainer = styled.div`
-    width: 283px;
-    height: calc(100vh - 100px);
+    min-width: 283px;
+    max-width: 283px;
+    height: 100%;
     overflow-y: auto;
     background: #FFFFFF;
     box-shadow: 0px 5px 20px #0000000A;
     display: flex;
     flex-direction: column;
     padding: 0px;
+    padding-bottom: 120px;
+    position: fixed;
+    z-index: 900;
 
     &::-webkit-scrollbar {
         width: 6px;
