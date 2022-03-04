@@ -61,7 +61,13 @@ const Brand = styled.div`
 `
 const LoginPage = styled.div`
     display: flex;
+    margin-left: -283px;
     min-height: 100vh;
+
+    @media (max-width: 768px) {
+        margin-left: 0px;
+        flex-direction: column;
+    }
 
     .illustration {
         width: 50%;
@@ -72,6 +78,10 @@ const LoginPage = styled.div`
         .logo {
             width: 173.76px;
             height: 36px;
+
+            @media (max-width: 768px) {
+                display: none;
+            }
         }
 
         .board {
@@ -91,6 +101,11 @@ const LoginPage = styled.div`
         justify-content: center;
         background: #FFFFFF;
         box-shadow: 0px -3px 20px #0000000A;
+        
+
+        @media (max-width: 880px) {
+            padding: 150px 50px;
+        }
 
         h1 {
             font-weight: 700;
