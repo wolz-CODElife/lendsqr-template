@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { IconCaretDownOutlined, IconNotification, IconSearch } from '../utils/icons'
+import { IconCaretDownOutlined, IconHambuger, IconNotification, IconSearch, IconSidebarExpandLeft, IconSidebarExpandRight } from '../utils/icons'
 
-const Navbar = () => {
+const Navbar = ({openSidebar, toggleSidebar}) => {
     const handleSearch = (e) => {
         e.preventDefault()
     }
@@ -10,6 +10,13 @@ const Navbar = () => {
         <>
             <NavbarContainer>
                 <div className="col1">
+                    <button className='toggle' onClick={toggleSidebar}>
+                        {openSidebar ?
+                            <IconSidebarExpandRight />
+                        :
+                            <IconSidebarExpandLeft />
+                        }
+                    </button>
                     <img src="https://i.postimg.cc/tCW5Cmry/image.png" alt="logo" className="brand" />
                     <form onSubmit={handleSearch} className="search_form">
                         <input type="text" placeholder='Search for anything' />
@@ -25,6 +32,9 @@ const Navbar = () => {
                         <IconCaretDownOutlined />
                     </div>
                 </div>
+                <button className='toggle' onClick={toggleSidebar}>
+                    <IconHambuger />
+                </button>
             </NavbarContainer>
             <NavbarSpacer></NavbarSpacer>
         </>
@@ -50,10 +60,48 @@ const NavbarContainer = styled.div`
     z-index: 1000;
     width: 100%;
 
+    .toggle {
+        background: none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        display: none;
+        margin-right: 20px;
+        color: #545F7D;
+
+        @media(max-width: 768px) {
+            display: unset;
+        }
+
+        svg {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
     .col1 {
         width: 50%;
         display: flex;
         justify-content: space-between;
+        align-items: center;
+
+        .toggle {
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            display: none;
+            margin-right: 20px;
+
+            @media(max-width: 768px) {
+                display: unset;
+            }
+
+            svg {
+                width: 25px;
+                height: 25px;
+            }
+        }
 
         .brand {
             width: 144px;
@@ -64,6 +112,10 @@ const NavbarContainer = styled.div`
         .search_form {
             width: 400px;
             display: flex;
+
+            @media(max-width: 768px) {
+                display: none;
+            }
             
             input{
                 flex: 1;
@@ -101,6 +153,10 @@ const NavbarContainer = styled.div`
     .col2 {
         display: flex;
         align-items: center;
+
+        @media(max-width: 768px) {
+            display: none;
+        }
 
         a {
             color: #213F7D;

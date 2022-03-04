@@ -219,3 +219,24 @@ export function IconStarPurple500(props) {
       <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21L12 17.27z"></path></svg>
     )
 }
+
+
+export function IconSidebarExpandLeft(props) {
+    return (
+      <svg width="1em" height="1em" viewBox="0 0 48 48" {...props}><g fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="4"><path d="M6 9a3 3 0 0 1 3-3h30a3 3 0 0 1 3 3v30a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V9Z"></path><path strokeLinecap="round" d="M32 6v36M16 20l4 4l-4 4M26 6h12M26 42h12"></path></g></svg>
+    )
+}
+
+
+export function IconSidebarExpandRight(props) {
+    return (
+      <svg width="1em" height="1em" viewBox="0 0 48 48" {...props}><g fill="none" stroke="currentColor" strokeLinejoin="round" strokeWidth="4"><rect width="36" height="36" x="6" y="6" rx="3"></rect><path strokeLinecap="round" d="M18 6v36M11 6h25M11 42h25m-4-22l-4 4l4 4"></path></g></svg>
+    )
+}
+
+
+export function IconHambuger(props) {
+    return (
+      <svg width="1em" height="1em" viewBox="0 0 256 256" {...props}><path fill="currentColor" fillRule="evenodd" d="M201.002 111c4.417 0 7.998 3.579 7.998 8.01v16.98c0 4.424-3.588 8.01-7.998 8.01H55.998C51.58 144 48 140.421 48 135.99v-16.98c0-4.424 3.588-8.01 7.998-8.01h145.004zm0 65c4.417 0 7.998 3.579 7.998 8.01v16.98c0 4.424-3.588 8.01-7.998 8.01H55.998C51.58 209 48 205.421 48 200.99v-16.98c0-4.424 3.588-8.01 7.998-8.01h145.004zm0-129c4.417 0 7.998 3.579 7.998 8.01v16.98c0 4.424-3.588 8.01-7.998 8.01H55.998C51.58 80 48 76.421 48 71.99V55.01c0-4.424 3.588-8.01 7.998-8.01h145.004z"></path></svg>
+    )
+}

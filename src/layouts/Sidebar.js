@@ -4,38 +4,9 @@ import { IconAngleDown, IconBriefcase, IconHome } from '../utils/icons'
 import { menuList } from '../utils/SidebarMenu'
 
 const Sidebar = (props) => {
-    const {route} = props
-  return (
-      <SidebarContainer>
-          <button>
-              <IconBriefcase />
-              <span>Switch Organization</span>
-              <IconAngleDown />
-          </button>
-          <a href="/">
-              <IconHome />
-              <span>Dashboard</span>
-          </a>
-          {menuList.map(item => (
-              <div className='category' key={item.category}>
-                <p>{item.category}</p>
-                {item.menu.map(menu => (
-                    <a href={menu.link || "/"} key={menu.title} className={`${route.replace("/", "") === menu.title.toLowerCase() ? 'active': ''}`}>
-                        {menu.icon}
-                        <span>{menu.title}</span>
-                    </a>
-                ))}
-              </div>
-          ))}
-      </SidebarContainer>
-  )
-}
-
-export default Sidebar
-
-const SidebarContainer = styled.div`
-    min-width: 283px;
-    max-width: 283px;
+    const {route, openSidebar} = props
+    const SidebarContainer = styled.div`
+    width: 283px;
     height: 100%;
     overflow-y: auto;
     background: #FFFFFF;
@@ -46,6 +17,11 @@ const SidebarContainer = styled.div`
     padding-bottom: 120px;
     position: fixed;
     z-index: 900;
+    transition: ease 1s;
+
+    @media(max-width: 768px) {
+        width: ${openSidebar ? "283px" : "0px"};
+    }
 
     &::-webkit-scrollbar {
         width: 6px;
@@ -124,3 +100,31 @@ const SidebarContainer = styled.div`
         }
     }
 `
+  return (
+      <SidebarContainer>
+          <button>
+              <IconBriefcase />
+              <span>Switch Organization</span>
+              <IconAngleDown />
+          </button>
+          <a href="/">
+              <IconHome />
+              <span>Dashboard</span>
+          </a>
+          {menuList.map(item => (
+              <div className='category' key={item.category}>
+                <p>{item.category}</p>
+                {item.menu.map(menu => (
+                    <a href={menu.link || "/"} key={menu.title} className={`${route.replace("/", "") === menu.title.toLowerCase() ? 'active': ''}`}>
+                        {menu.icon}
+                        <span>{menu.title}</span>
+                    </a>
+                ))}
+              </div>
+          ))}
+      </SidebarContainer>
+  )
+}
+
+export default Sidebar
+
