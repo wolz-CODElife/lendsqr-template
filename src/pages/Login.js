@@ -9,6 +9,10 @@ const Login = () => {
         e.preventDefault()
         setShowPass(!showPass)
     }
+    const handleLogin = (e) => {
+        e.preventDefault()
+        window.location.assign("/users")
+    }
   return (
       <>
         <Brand>
@@ -23,7 +27,7 @@ const Login = () => {
                 <div>
                     <h1>Welcome!</h1>
                     <p>Enter details to login.</p>
-                    <form>
+                    <form onSubmit={handleLogin}>
                         <div className="form-field">
                             <input type="email" placeholder='Email' />
                         </div>
@@ -86,7 +90,7 @@ const LoginPage = styled.div`
         flex-direction: column;
         justify-content: center;
         background: #FFFFFF;
-        box-shadow: 0px -3px 5px 5px #FdFdFd;
+        box-shadow: 0px -3px 20px #0000000A;
 
         h1 {
             font-weight: 700;

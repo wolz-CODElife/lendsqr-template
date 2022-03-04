@@ -15,7 +15,7 @@ const App = () => {
       }
       <BodyContainer>
         {route !== "/" &&
-          <Sidebar />
+          <Sidebar route={route} />
         }
         <PagesRoutes />
       </BodyContainer>
@@ -26,6 +26,8 @@ const App = () => {
 export default App
 
 const BodyContainer = styled.div`
+  display: flex;
+
   @media (max-width: 768px) {
     margin-left: -270px;
   }
