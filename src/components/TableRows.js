@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { IconEyeOutline, IconMenuKebab, IconUserCheck, IconUserX } from '../utils/icons'
 
 const TableRows = ({user}) => {
-    const {organization, username, email, phone, date, status} = user
+    const {organization, userName, email, id, phone, date, status} = user
     const [popOpen, setPopOpen] = useState(false)
 
     const statusColor = {
@@ -41,7 +41,7 @@ const TableRows = ({user}) => {
         <>
             <TR>
                 <td>{organization}</td>
-                <td>{username}</td>
+                <td>{userName}</td>
                 <td>{email}</td>
                 <td>{phone}</td>
                 <td>{date}</td>
@@ -54,7 +54,7 @@ const TableRows = ({user}) => {
                     <button onClick={handleOpenPop}><IconMenuKebab /></button>
                     {popOpen &&
                         <Popover onMouseLeave={handleClosePop} onMouseEnter={handleOpening}>
-                            <a href={`/users/${username}`}><IconEyeOutline /> View Details</a>
+                            <a href={`/users/${id}`}><IconEyeOutline /> View Details</a>
                             <a href="/"><IconUserX /> Blacklist User</a>
                             <a href="/"><IconUserCheck /> Activate User</a>
                         </Popover>

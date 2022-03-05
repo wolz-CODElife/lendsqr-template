@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const UserInformation = () => {
+const UserInformation = ({userData}) => {
   return (
       <UserInfoContainer>
           <div className="field">
@@ -9,35 +9,35 @@ const UserInformation = () => {
               <div className="row">
                   <div className="col">
                       <h3>full Name</h3>
-                      <p>Grace Effiom</p>
+                      <p>{userData.fullName}</p>
                   </div>
                   <div className="col">
                       <h3>Phone Number</h3>
-                      <p>07060780922</p>
+                      <p>{userData.phone}</p>
                   </div>
                   <div className="col">
                       <h3>Email Address</h3>
-                      <p>grace@gmail.com</p>
+                      <p>{userData.email}</p>
                   </div>
                   <div className="col">
                       <h3>Bvn</h3>
-                      <p>07060780922</p>
+                      <p>{userData.bvn}</p>
                   </div>
                   <div className="col">
                       <h3>Gender</h3>
-                      <p>Female</p>
+                      <p>{userData.gender}</p>
                   </div>
                   <div className="col">
                       <h3>Marital status</h3>
-                      <p>Single</p>
+                      <p>{userData.married}</p>
                   </div>
                   <div className="col">
                       <h3>Children</h3>
-                      <p>None</p>
+                      <p>{userData.children}</p>
                   </div>
                   <div className="col">
                       <h3>Type of residence</h3>
-                      <p>Parent’s Apartment</p>
+                      <p>{userData.apartment}</p>
                   </div>
               </div>
           </div>
@@ -46,31 +46,31 @@ const UserInformation = () => {
               <div className="row">
                   <div className="col">
                       <h3>level of education</h3>
-                      <p>B.Sc</p>
+                      <p>{userData.education}</p>
                   </div>
                   <div className="col">
                       <h3>employment status</h3>
-                      <p>Employed</p>
+                      <p>{userData.employed}</p>
                   </div>
                   <div className="col">
                       <h3>sector of employment</h3>
-                      <p>FinTech</p>
+                      <p>{userData.sector}</p>
                   </div>
                   <div className="col">
                       <h3>Duration of employment</h3>
-                      <p>2 years</p>
+                      <p>{userData.duration}</p>
                   </div>
                   <div className="col">
                       <h3>office email</h3>
-                      <p>grace@lendsqr.com</p>
+                      <p>{userData.officeEmail}</p>
                   </div>
                   <div className="col">
                       <h3>Monthly income</h3>
-                      <p>₦200,000.00- ₦400,000.00</p>
+                      <p>{userData.income}</p>
                   </div>
                   <div className="col">
                       <h3>loan repayment</h3>
-                      <p>40,000</p>
+                      <p>{userData.loan}</p>
                   </div>
               </div>
           </div>
@@ -80,59 +80,41 @@ const UserInformation = () => {
               <div className="row">
                   <div className="col">
                       <h3>Twitter</h3>
-                      <p>@grace_effiom</p>
+                      <p>{userData.twitter}</p>
                   </div>
                   <div className="col">
                       <h3>Facebook</h3>
-                      <p>Grace Effiom</p>
+                      <p>{userData.facebook}</p>
                   </div>
                   <div className="col">
                       <h3>Instagram</h3>
-                      <p>@grace_effiom</p>
+                      <p>{userData.instagram}</p>
                   </div>
               </div>
           </div>
           
           <div className="field">
-              <h2>Guarantor</h2>
-              <div className="row">
-                  <div className="col">
-                      <h3>full Name</h3>
-                      <p>Debby Ogana</p>
-                  </div>
-                  <div className="col">
-                      <h3>Phone Number</h3>
-                      <p>07060780922</p>
-                  </div>
-                  <div className="col">
-                      <h3>Email Address</h3>
-                      <p>debby@gmail.com</p>
-                  </div>
-                  <div className="col">
-                      <h3>Relationship</h3>
-                      <p>Sister</p>
-                  </div>
-              </div>
-          </div>
-          <div className="field">
-            <div className="row">
-                  <div className="col">
-                      <h3>full Name</h3>
-                      <p>Debby Ogana</p>
-                  </div>
-                  <div className="col">
-                      <h3>Phone Number</h3>
-                      <p>07060780922</p>
-                  </div>
-                  <div className="col">
-                      <h3>Email Address</h3>
-                      <p>debby@gmail.com</p>
-                  </div>
-                  <div className="col">
-                      <h3>Relationship</h3>
-                      <p>Sister</p>
-                  </div>
-              </div>
+                <h2>Guarantor</h2>
+                {userData.guarantors.map(guarantor => (
+                    <div className="row" key={guarantor.email}>
+                        <div className="col">
+                            <h3>full Name</h3>
+                            <p>{guarantor.fullname}</p>
+                        </div>
+                        <div className="col">
+                            <h3>Phone Number</h3>
+                            <p>{guarantor.phone}</p>
+                        </div>
+                        <div className="col">
+                            <h3>Email Address</h3>
+                            <p>{guarantor.email}</p>
+                        </div>
+                        <div className="col">
+                            <h3>Relationship</h3>
+                            <p>{guarantor.relationship}</p>
+                        </div>
+                    </div>
+                ))}
           </div>
       </UserInfoContainer>
   )
@@ -165,6 +147,10 @@ const UserInfoContainer = styled.div`
             margin: 0px -25px;
             padding-bottom: 30px;
             border-bottom: 1px solid #213F7D1A;
+            
+            &:nth-of-type(2) {
+                border-top: 1px solid #213F7D1A;
+            }
 
             .col {
                 margin: 0px 25px;

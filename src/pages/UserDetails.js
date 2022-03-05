@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import UserInformation from '../layouts/UserInformation'
 import UserProfile from '../layouts/UserProfile'
-import { IconLongLeft } from '../utils/icons'
+import { IconLongLeft, IconSpinner } from '../utils/icons'
+import { userList } from '../utils/UsersList'
 
 const UserDetails = () => {
+    const userId = document.location.pathname.split("/")[2]
+    const [userData, setUserData] = useState(null)
+
+    useEffect(() => {
+        let newUser = userList.filter(item => item.id === userId)
+        setUserData(newUser[0])
+    }, [userId])
+
   return (
       <UserDetailsContainer>
           <div className='nav'>
@@ -17,9 +26,16 @@ const UserDetails = () => {
                   <button>Activate User</button>
               </div>
           </div>
-
-          <UserProfile />
-          <UserInformation />
+        {userData ?
+            <>
+            <UserProfile userData={userData} />
+            <UserInformation userData={userData} />
+            </>  
+          :
+            <Loader>
+                <IconSpinner />
+            </Loader>
+        }
       </UserDetailsContainer>
   )
 }
@@ -94,6 +110,29 @@ const UserDetailsContainer = styled.div`
                     border: 1px solid #39CDCC;
                     color: #39CDCC;
                 }
+            }
+        }
+    }
+`
+
+
+
+const Loader = styled.div`
+    width: 100%;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        width: 80px;
+        height: 80px;
+        color: #545F7D;
+        animation: rotate 2s linear infinite;
+
+        @keyframes rotate {
+            100% {
+              transform: rotate(360deg);
             }
         }
     }

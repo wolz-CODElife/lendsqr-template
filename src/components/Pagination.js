@@ -1,32 +1,67 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { IconAngleLeftB, IconAngleRightB } from '../utils/icons'
 
-const Pagination = () => {
+const Pagination = (props) => {
+    const {countPerPage, totalRecord, setCountPerPage, page, setPage} = props
+    const [navItems, setNavItems] = useState([])
+
+    const handlePrev = () => {
+        if(page > 0) {
+            setPage(page - 1)
+        }
+    }
+
+    const handleNext = () => {
+        if(page < (Math.ceil(totalRecord/countPerPage) - 1)){
+            setPage(page + 1)
+        }
+    }
+
+    const handleSetCount = (e) => {
+        setPage(0)
+        setCountPerPage(parseInt(e.target.value))
+    }
+
+    useEffect(() => {
+        let tempNavItems = []
+        for (let i = 0; i < Math.ceil(totalRecord/countPerPage); i++) {
+            tempNavItems.push(i)
+        }
+        setNavItems(tempNavItems)
+    }, [countPerPage, totalRecord])
   return (
       <PaginationSection>
           <div className="details">
               <p>Showing</p>
-              <select>
-                  <option value="100">100</option>
-                  <option value="200">200</option>
-                  <option value="300">300</option>
-                  <option value="400">400</option>
-                  <option value="500">500</option>
+              <select defaultValue={countPerPage} onChange={handleSetCount}>
+                  <option value={50}>50</option>
+                  <option value={100}>100</option>
+                  <option value={200}>200</option>
+                  <option value={300}>300</option>
+                  <option value={400}>400</option>
+                  <option value={500}>500</option>
               </select>
-              <p>out of 100</p>
+              <p>out of {totalRecord}</p>
           </div>
 
-          <div className="nav">
-              <button><IconAngleLeftB /></button>
-              <button className='active'>1</button>
-              <button>2</button>
-              <button>3</button>
-              <span>...</span>
-              <button>15</button>
-              <button>16</button>
-              <button><IconAngleRightB /></button>
-          </div>
+        <div className="nav">
+            <button onClick={handlePrev}><IconAngleLeftB /></button>
+            {navItems.slice(0, 3).map(item => (
+                <button key={item} onClick={() => setPage(item)} className={item === page ? 'active' : ''}>{item}</button>
+            ))}
+            {(Math.ceil(totalRecord/countPerPage)) > 7 &&
+                <span>...</span>
+            }
+            {navItems.length > 7 ?
+                navItems.slice(navItems.length - 3, navItems.length).map(item => (
+                    <button key={item} onClick={() => setPage(item)} className={item === page ? 'active' : ''}>{item}</button>
+                ))
+            :
+                ""
+            }
+            <button onClick={handleNext}><IconAngleRightB /></button>
+        </div>
       </PaginationSection>
   )
 }

@@ -2,32 +2,44 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { IconDropDown, IconStarPurple500 } from '../utils/icons'
 
-const UserProfile = () => {
+const UserProfile = ({userData}) => {
     const [openNav, setOpenNav] = useState(false)
     const maxWidth = window.matchMedia("(max-width: 1100px)")
+    const stars = [1, 2, 3]
 
     return (
         <UserHeader>
             <div className="profile">
                 <div className='column'>
-                    <img src="https://i.postimg.cc/Kzv5mC22/image.png" alt="profile" />
+                    <img src={`${ userData.avatar || "https://i.postimg.cc/Kzv5mC22/image.png"}`} alt="profile" />
                     <div className="col">
-                        <h1>Grace Effiom</h1>
-                        <p>LSQFf587g90</p>
+                        <h1>{userData.fullName}</h1>
+                        <p>{userData.id}</p>
                     </div>
                 </div>
                 <div className='column'>
                     <div className="col center">
                         <p>User’s Tier</p>
                         <p>
-                            <IconStarPurple500 />
-                            <IconStarPurple500 />
-                            <IconStarPurple500 />
+                            {stars.map(star => {
+                                if(star < userData.tier + 1){
+                                    return (
+                                        <span className="active" key={star}>
+                                            <IconStarPurple500 />
+                                        </span>
+                                    )
+                                }
+                                else {
+                                    return (
+                                        <IconStarPurple500 key={star} />
+                                    )
+                                }
+                            })}
                         </p>
                     </div>
                     <div className="col">
-                        <h1>₦200,000.00</h1>
-                        <p>9912345678/Providus Bank</p>
+                        <h1>{userData.balance}</h1>
+                        <p>{userData.accountNumber}/{userData.bank}</p>
                     </div>
                 </div>
             </div>
@@ -134,7 +146,9 @@ const UserHeader = styled.div`
                     width: 15px;
                     height: 15px;
                     
-                    &:first-of-type {
+                }
+                .active {
+                    svg {
                         color: #E9B200;
                     }
                 }
