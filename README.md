@@ -32,56 +32,24 @@ I used plain CSS with styled components in React to accomplish this exercise.
 The functionality was implemented using React.
 Ideally, I supposed to use TypeScript, but JavaScript is fine too.
 
-I provides some tests as well.
-
 The areas that are implemented are:
 
-- Track selection:
-  - Clicking the track button (top-left) opens the track selector.
-  - Clicking on a track within the track selector updates the table accordingly and close the selector.
-  - The tracks are filtered to only show the list of tracks on which a user has given testimonials.
-- Exercise filtering:
-  - Typing into the exercise box filters the tracks.
-  - I Considered reducing calls to the API while the user is still typing.
-- Sorting:
-  - There are two sort options: oldest first or newest first.
+- Login:
+  - Clicking the login button navigates to the `/users` route.
+  - There were no backend functionality provided, so email and password authentication were not functional
+- Users listing:
+  - 500 records of users were fetched from a JSON data.
 - Pagination:
   - Pagination was implemented.
-  - Filtering updates pagination options (i.e. if there are only two pages of Ruby results then the pagination only shows two pages).
+  - Only the set amount of record to show per page was visible, this was achieved by slicing the array of users per the set amount of users to be displayed on the table.
+  - I also implemented ppages navigation on the table.
+- User Details
+  - For a selected/single user, when the `View Details` button is clicked, a new page is navigated to that reveals more information about that user.
 
 Other notes:
 
-- All filtering of the testimonials was done at the server-side level via API calls.
 - I did't implement the functionality of the top-bar.
 
-### API Calls
-
-To get data I used Exercism's API. There are two endpoints, both which return JSON and neither of which need authentication:
-
-#### Tracks
-
-I retrieved the list of all tracks from: https://exercism.org/api/v2/tracks
-
-#### Testimonials
-
-I ccess the testimonials from: https://exercism.org/api/v2/hiring/testimonials
-
-I used the following params to modify which records are returned:
-
-- `page`: Specify to return a different page (e.g. `2`) of the results (note: page `1` is the first page).
-- `track`: Pass a complete track slug (e.g. `python`) to only return the Ruby track's testimonials.
-- `exercise`: Pass a partial exercise name (e.g. `ming`) to only return the exercises that contain the word "ming".
-- `order`: Specify either `newest_first` or `oldest_first` (default) to switch the order.
-
-A complete URL might be `https://exercism.org/api/v2/hiring/testimonials?page=2&track=python&exercise=ming&order=newest_first`.
-
-The endpoint returns JSON with the following top-level keys:
-
-- `testimonials`: An object containing information related to the page of testimonials that is to be rendered.
-  - `results`: The testimonials containing the relevant information to render on the UI.
-  - `pagination`: Pagination data to allow you to render the pagination section.
-- `tracks`: A list of all tracks that this user has given testimonials on.
-- `track_counts`: An object mapping tracks to the number of testimonials for that track.
 
 
 # Getting Started with Create React App
