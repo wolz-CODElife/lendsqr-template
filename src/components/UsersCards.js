@@ -32,10 +32,21 @@ const Cards = styled.div`
         padding: 20px 30px;
         height: 160px;
         width: 220px;
+        max-width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         margin: 10px auto;
+
+        @media(max-width: 370px) {
+            padding: 10px 15px;
+        }
+
+        @media(max-width: 300px) {
+            padding: 20px 30px;
+            max-width: unset;
+            min-width: 100%;
+        }
 
         span {
             width: 40px;
